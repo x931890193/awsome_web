@@ -1,9 +1,9 @@
 package blog
 
 import (
+	. "awsome_web/lib"
+	"awsome_web/models/blog"
 	"github.com/astaxie/beego/orm"
-	. "github.com/hunterhug/rabbit/lib"
-	"github.com/hunterhug/rabbit/models/blog"
 )
 
 type CategoryController struct {
@@ -73,7 +73,6 @@ func (this *CategoryController) AddCategory() {
 		this.TplName = this.GetTemplate() + "/blog/addcate.html"
 	}
 }
-
 
 func (this *CategoryController) UpdateCategory() {
 	small, _ := this.GetInt64("small", 0)

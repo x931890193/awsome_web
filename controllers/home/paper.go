@@ -3,9 +3,9 @@ package home
 import (
 	"strconv"
 
+	"awsome_web/lib"
+	"awsome_web/models/blog"
 	"github.com/astaxie/beego/orm"
-	"github.com/hunterhug/rabbit/lib"
-	"github.com/hunterhug/rabbit/models/blog"
 )
 
 // not so good must rewrite!

@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -19,13 +19,13 @@ import (
 	"mime"
 	"strings"
 
+	"awsome_web/conf"
+	"awsome_web/controllers"
+	"awsome_web/lib"
+	"awsome_web/models"
+	"awsome_web/routers"
 	"github.com/astaxie/beego"
 	"github.com/beego/i18n"
-	"github.com/hunterhug/rabbit/conf"
-	"github.com/hunterhug/rabbit/controllers"
-	"github.com/hunterhug/rabbit/lib"
-	"github.com/hunterhug/rabbit/models"
-	"github.com/hunterhug/rabbit/routers"
 )
 
 func init() {

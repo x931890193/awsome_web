@@ -17,15 +17,15 @@
 使用只需拉下库:
 
 ```shell
-go get -v github.com/hunterhug/rabbit
+go get -v github.com/admin/awsome_web
 ```
 
 或者:
 
 ```
-git clone https://www.github.com/hunterhug/rabbit
-mkdir -p %GOPATH%/src/github.com/hunterhug
-mv rabbit %GOPATH%/src/github.com/hunterhug
+git clone https://www.github.com/admin/awsome_web
+mkdir -p %GOPATH%/src/github.com/admin
+mv awsome_web %GOPATH%/src/github.com/admin
 ```
 
 编译程序
@@ -63,13 +63,13 @@ db_type = mysql
 初始化数据库
 
 ```shell
-./rabbit -db=1
+./awsome_web -db=1
 ```
 
 运行程序,调试建议使用beego官方工具`bee run`
 
 ```shell
-./rabbit
+./awsome_web
 ```
 
 这时，你可以打开`http://127.0.0.1:8080`, 进入后台编辑网站：`http://127.0.0.1:8080/public/login`, 账户`admin`, 密码：`admin`
@@ -165,7 +165,7 @@ ajax调用JSON时请注意跨域问题(见front文件夹),这样的好处是将�
 每次在`models/admin/AdminInit.go`增加路由权限请执行
 
 ```
-./rabbit -rbac=1
+./awsome_web -rbac=1
 ```
 
 调试请使用`bee run`
@@ -213,10 +213,10 @@ curl tuzi.lenggirl.com
 如果你觉得项目帮助到你,欢迎请我喝杯咖啡
 
 微信
-![微信](https://raw.githubusercontent.com/hunterhug/hunterhug.github.io/master/static/jpg/wei.png)
+![微信](https://raw.githubusercontent.com/admin/admin.github.io/master/static/jpg/wei.png)
 
 支付宝
-![支付宝](https://raw.githubusercontent.com/hunterhug/hunterhug.github.io/master/static/jpg/ali.png)
+![支付宝](https://raw.githubusercontent.com/admin/admin.github.io/master/static/jpg/ali.png)
 
 
 问题咨询请发邮件:gdccmcm14@live.com.
@@ -226,7 +226,7 @@ curl tuzi.lenggirl.com
 欢迎加功能(PR/issues),请遵循Apache License协议(即可随意使用但每个文件下都需加此申明）
 
 ```
-Copyright 2017 by rabbit author: gdccmcm14@live.com.
+awsome_web
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at

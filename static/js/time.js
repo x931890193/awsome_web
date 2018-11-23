@@ -18,7 +18,7 @@
             h_frontColor: "darkgreen",
             h_thinHandColor: "green",//分针颜色
             h_linkText: "",
-            h_linkUrl: "https://www.github.com/hunterhug",
+            h_linkUrl: "https://www.github.com/admin",
             h_linkColor: "deeppink",
             h_linkSize: "16px",
             h_hourLength: "",//时针长度
@@ -218,7 +218,7 @@
 
 
         //---------------------------------------------------
-        h_hoverClock.append('<div class="hoverclocktext"><a href="https://www.github.com/hunterhug" target="_blank" class="hoverclocklink" style="text-decoration:none">珍惜时间</a></div>')
+        h_hoverClock.append('<div class="hoverclocktext"><a href="https://www.github.com/admin" target="_blank" class="hoverclocklink" style="text-decoration:none">珍惜时间</a></div>')
         h_hoverClock.find(".hoverclocktext").css({ "width": h_hoverClock.width(), "position": "absolute", "top": h_minBanjing * 6 / 5, "text-align": "center" })
         var h_hoverClockLink = h_hoverClock.find(".hoverclocklink");
         h_hoverClockLink.text(settings.h_linkText);

@@ -1,9 +1,9 @@
 package util
 
 import (
+	"awsome_web/models/admin"
+	"awsome_web/models/blog"
 	"github.com/astaxie/beego/orm"
-	"github.com/hunterhug/rabbit/models/admin"
-	"github.com/hunterhug/rabbit/models/blog"
 )
 
 func RegisterDBAdminModel() {

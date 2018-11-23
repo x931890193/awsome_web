@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/hunterhug/rabbit",
+	"ImportPath": "github.com/admin/awsome_web",
 	"GoVersion": "go1.9",
 	"GodepVersion": "v79",
 	"Deps": [
@@ -82,12 +82,12 @@
 			"Rev": "7ebe0a500653eeb1859664bed5e48dec1e164e73"
 		},
 		{
-			"ImportPath": "github.com/hunterhug/marmot/miner",
+			"ImportPath": "github.com/admin/marmot/miner",
 			"Comment": "v1-4-gdc44b52",
 			"Rev": "dc44b527d542f2695e03eca8207fd34ed78a041a"
 		},
 		{
-			"ImportPath": "github.com/hunterhug/parrot/util",
+			"ImportPath": "github.com/admin/parrot/util",
 			"Rev": "dd94d427179f552518ac6eb922588b05b0efb867"
 		},
 		{

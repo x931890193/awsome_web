@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -13,8 +13,8 @@
 package routers
 
 import (
+	"awsome_web/controllers/admin/rbac"
 	"github.com/astaxie/beego"
-	"github.com/hunterhug/rabbit/controllers/admin/rbac"
 )
 
 // 后台RBAC路由

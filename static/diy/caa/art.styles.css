@@ -1799,7 +1799,7 @@ p {
   height: 185px;
 
 }
-.book-scroll-wrap li z-index:1 .pic {
+.book-scroll-wrap li z-index:only-child {
   width: 129px;
   height: 185px;
   display: block;

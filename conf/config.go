@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -14,11 +14,12 @@ package conf
 
 import (
 	"fmt"
+	"github.com/hunterhug/parrot/util"
 	"path/filepath"
 	"strconv"
 
 	"github.com/astaxie/beego"
-	"github.com/hunterhug/parrot/util"
+
 )
 
 type FlagConfig struct {
@@ -52,7 +53,7 @@ var (
 func InitConfig() {
 	// version
 	Version = beego.AppConfig.DefaultString("version", "version2.0")
-	beego.Trace("Version:",Version)
+	beego.Trace("Version:", Version)
 
 	AuthType, _ = strconv.Atoi(beego.AppConfig.String("user_auth_type"))
 	AuthGateWay = beego.AppConfig.DefaultString("rbac_auth_gateway", "/public/login")
@@ -69,7 +70,6 @@ func InitConfig() {
 	DbLog = beego.AppConfig.String("dblog")
 
 	MYSQLDNS = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", DbUser, DbPass, DbHost, DbPort, DbName)
-
 	AdminTemplate = beego.AppConfig.DefaultString("admin_template", "default")
 }
 

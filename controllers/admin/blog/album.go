@@ -1,9 +1,9 @@
 package blog
 
 import (
+	. "awsome_web/lib"
+	"awsome_web/models/blog"
 	"github.com/astaxie/beego/orm"
-	. "github.com/hunterhug/rabbit/lib"
-	"github.com/hunterhug/rabbit/models/blog"
 )
 
 type AlbumController struct {
@@ -114,9 +114,9 @@ func (this *AlbumController) UpdateCategory() {
 			var err error
 			if photo != "" {
 				thiscategory.Image = photo
-				err = thiscategory.Update("Username", "Title", "Pid", "Sort", "Status", "Content", "Updatetime", "Image", "Alias")
+				err = thiscategory.Update("Title", "Pid", "Sort", "Status", "Content", "Updatetime", "Image", "Alias")
 			} else {
-				err = thiscategory.Update("Username", "Title", "Pid", "Sort", "Status", "Content", "Updatetime", "Alias")
+				err = thiscategory.Update("Title", "Pid", "Sort", "Status", "Content", "Updatetime", "Alias")
 				//beego.Trace("空图片：" + photo)
 			}
 			if err != nil {

@@ -33,7 +33,7 @@ main
 *.prof
 *.log
 *.exe~
-rabbit
+awsome_web
 !/file
 /file/*
 !/file/red

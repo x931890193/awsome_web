@@ -11,29 +11,23 @@
 // 	limitations under the License
 //
 
-/*
-Package miner is the core of this project, use to request for http api.
-
-Example:
-
-	package main
-
-	import (
-	"fmt"
-
-	"github.com/hunterhug/marmot/miner"
-	)
-
-	func main() {
-		// Use Default Worker, You can Also New One:
-		// worker:=miner.New(nil)
-		miner.SetLogLevel(miner.DEBUG)
-		_, err := miner.SetUrl("https://www.whitehouse.gov").Go()
-		if err != nil {
-			fmt.Println(err.Error())
-		} else {
-			fmt.Println(miner.ToString())
-		}
-	}
- */
 package miner
+
+import (
+	"context"
+	"fmt"
+	"testing"
+)
+
+func TestConfig(t *testing.T) {
+	worker, _ := New(nil)
+	fmt.Printf("%#v\n", worker)
+
+	if worker.BeforeAction == nil {
+		fmt.Println("good")
+	}
+
+	worker.BeforeAction = func(c context.Context, worker *Worker) {
+		worker.SetHeaderParm("Marmot", "v2")
+	}
+}

@@ -1,9 +1,9 @@
 package blog
 
 import (
+	. "awsome_web/lib"
+	"awsome_web/models/blog"
 	"github.com/astaxie/beego/orm"
-	. "github.com/hunterhug/rabbit/lib"
-	"github.com/hunterhug/rabbit/models/blog"
 )
 
 type PaperController struct {

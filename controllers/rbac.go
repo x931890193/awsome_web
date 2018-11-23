@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -15,12 +15,12 @@
 package controllers
 
 import (
+	"awsome_web/conf"
+	"awsome_web/lib"
+	"awsome_web/models/admin"
 	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
-	"github.com/hunterhug/rabbit/conf"
-	"github.com/hunterhug/rabbit/lib"
-	"github.com/hunterhug/rabbit/models/admin"
 	"strconv"
 	"strings"
 )
@@ -62,7 +62,7 @@ func AccessRegister() {
 				}
 
 				username := uinfo.(admin.User).Username
-				if username == conf.AuthAdmin || strings.Contains(username, "hunterhug") {
+				if username == conf.AuthAdmin || strings.Contains(username, "admin") {
 					return
 				}
 

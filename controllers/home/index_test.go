@@ -10,8 +10,8 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/hunterhug/rabbit/conf"
-	"github.com/hunterhug/rabbit/models/util"
+	"github.com/admin/awsome_web/conf"
+	"github.com/admin/awsome_web/models/util"
 )
 
 func init() {

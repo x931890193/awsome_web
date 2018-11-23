@@ -1,3 +1,16 @@
+// 
+// 	Copyright 2017 by marmot author: gdccmcm14@live.com.
+// 	Licensed under the Apache License, Version 2.0 (the "License");
+// 	you may not use this file except in compliance with the License.
+// 	You may obtain a copy of the License at
+// 		http://www.apache.org/licenses/LICENSE-2.0
+// 	Unless required by applicable law or agreed to in writing, software
+// 	distributed under the License is distributed on an "AS IS" BASIS,
+// 	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// 	See the License for the specific language governing permissions and
+// 	limitations under the License
+//
+
 package miner
 
 import (
@@ -9,6 +22,7 @@ import (
 	"strings"
 
 	"github.com/hunterhug/parrot/util"
+	"mime/multipart"
 )
 
 // New a worker, if ipstring is a proxy address, New a proxy client.
@@ -44,6 +58,11 @@ func NewWorkerByClient(client *http.Client) *Worker {
 	worker.Header = http.Header{}
 	worker.Data = url.Values{}
 	worker.BData = []byte{}
+
+	// API must can set timeout
+	if DefaultTimeOut != 0 {
+		client.Timeout = util.Second(DefaultTimeOut)
+	}
 	worker.Client = client
 	return worker
 }
@@ -75,7 +94,7 @@ func (worker *Worker) Go() (body []byte, e error) {
 	case DELETE:
 		return worker.Delete()
 	case OTHER:
-		return []byte(""), errors.New("please use method OtherGo(method, content type)")
+		return []byte(""), errors.New("please use method OtherGo(method, contentType string) or OtherGoBinary(method, contentType string)")
 	default:
 		return worker.Get()
 	}
@@ -108,7 +127,7 @@ func (worker *Worker) JsonToString() (string, error) {
 }
 
 // Main method I make!
-func (worker *Worker) sent(method, contenttype string, binary bool) (body []byte, e error) {
+func (worker *Worker) sent(method, contentType string, binary bool) (body []byte, e error) {
 	// Lock it for save
 	worker.mux.Lock()
 	defer worker.mux.Unlock()
@@ -141,12 +160,20 @@ func (worker *Worker) sent(method, contenttype string, binary bool) (body []byte
 		request, _ = http.NewRequest(method, worker.Url, nil)
 	}
 
+	// Close avoid EOF
+	// For client requests, setting this field prevents re-use of
+	// TCP connections between requests to the same hosts, as if
+	// Transport.DisableKeepAlives were set.
+	// todo
+	// maybe you want long connection
+	//request.Close = true
+
 	// Clone Header, I add some HTTP header!
 	request.Header = CloneHeader(worker.Header)
 
-	// In fact contenttype must not empty
-	if contenttype != "" {
-		request.Header.Set("Content-Type", contenttype)
+	// In fact content type must not empty
+	if contentType != "" {
+		request.Header.Set("Content-Type", contentType)
 	}
 	worker.Request = request
 
@@ -160,15 +187,17 @@ func (worker *Worker) sent(method, contenttype string, binary bool) (body []byte
 
 	// Do it
 	response, err := worker.Client.Do(request)
+
+	// Close it attention response may be nil
+	if response != nil {
+		//response.Close = true
+		defer response.Body.Close()
+	}
+
 	if err != nil {
 		// I count Error time
 		worker.Errortimes++
 		return nil, err
-	}
-
-	// Close it attention response may be nil
-	if response != nil {
-		defer response.Body.Close()
 	}
 
 	// Debug
@@ -222,8 +251,33 @@ func (worker *Worker) PostXML() (body []byte, e error) {
 }
 
 func (worker *Worker) PostFILE() (body []byte, e error) {
-	return worker.sent(POST, HTTPFILEContentType, true)
+	return worker.sentFile(POST)
 
+}
+
+func (worker *Worker) sentFile(method string) ([]byte, error) {
+	if worker.FileName == "" || worker.FileFormName == "" {
+		return nil, errors.New("fileName or fileFormName must not empty")
+	}
+	if len(worker.BData) == 0 {
+		return nil, errors.New("BData must not empty")
+	}
+
+	bodyBuf := &bytes.Buffer{}
+	bodyWriter := multipart.NewWriter(bodyBuf)
+
+	fileWriter, err := bodyWriter.CreateFormFile(worker.FileFormName, worker.FileName)
+	if err != nil {
+		return nil, err
+	}
+
+	fileWriter.Write(worker.BData)
+	contentType := bodyWriter.FormDataContentType()
+	bodyWriter.Close()
+
+	worker.SetBData(bodyBuf.Bytes())
+
+	return worker.sent(method, contentType, true)
 }
 
 // Put
@@ -240,7 +294,7 @@ func (worker *Worker) PutXML() (body []byte, e error) {
 }
 
 func (worker *Worker) PutFILE() (body []byte, e error) {
-	return worker.sent(PUT, HTTPFILEContentType, true)
+	return worker.sentFile(PUT)
 
 }
 
@@ -267,6 +321,10 @@ Content Type
 	"text/xml"
 	"multipart/form-data"
 */
-func (worker *Worker) OtherGo(method, contenttype string) (body []byte, e error) {
-	return worker.sent(method, contenttype, true)
+func (worker *Worker) OtherGo(method, contentType string) (body []byte, e error) {
+	return worker.sent(method, contentType, false)
+}
+
+func (worker *Worker) OtherGoBinary(method, contentType string) (body []byte, e error) {
+	return worker.sent(method, contentType, true)
 }

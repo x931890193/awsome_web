@@ -1,10 +1,10 @@
 package blog
 
 import (
+	. "awsome_web/lib"
 	"bytes"
 	_ "fmt"
 	_ "github.com/astaxie/beego"
-	. "github.com/hunterhug/rabbit/lib"
 	"io/ioutil"
 	"strings"
 )

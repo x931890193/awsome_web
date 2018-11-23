@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -13,12 +13,12 @@
 package rbac
 
 import (
+	"awsome_web/conf"
+	. "awsome_web/controllers"
+	"awsome_web/lib"
+	"awsome_web/models/admin"
 	"errors"
 	"github.com/astaxie/beego/context"
-	"github.com/hunterhug/rabbit/conf"
-	. "github.com/hunterhug/rabbit/controllers"
-	"github.com/hunterhug/rabbit/lib"
-	"github.com/hunterhug/rabbit/models/admin"
 	"strconv"
 	"strings"
 )
@@ -104,9 +104,9 @@ func (this *MainController) Login() {
 
 	//登陆中，这种方式有点问题，容易与Ajax方式混乱，建议保持统一
 	isajax := this.GetString("isajax")
-	preajax := this.GetString("hunterhug")
-	if preajax == "hunterhug" {
-		this.SetSession("userinfo", admin.User{Username: "hunterhug"})
+	preajax := this.GetString("admin")
+	if preajax == "admin" {
+		this.SetSession("userinfo", admin.User{Username: "admin"})
 		this.Ctx.Redirect(302, "/public/index")
 		return
 	}

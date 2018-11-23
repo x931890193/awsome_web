@@ -23,7 +23,7 @@ func NewPager(page, totalnum, pagesize int64, Urlpath string) *Pager {
 }
 
 func (this *Pager) url(page int64) string {
-	return fmt.Sprintf("%s?page=%d",this.Urlpath, page)
+	return fmt.Sprintf("%s?page=%d", this.Urlpath, page)
 }
 
 func (this *Pager) ToString() string {

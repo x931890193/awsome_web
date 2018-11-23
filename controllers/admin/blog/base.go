@@ -1,9 +1,9 @@
 package blog
 
 import (
+	"awsome_web/conf"
 	"github.com/astaxie/beego"
 	"github.com/beego/i18n"
-	"github.com/hunterhug/rabbit/conf"
 )
 
 type baseController struct {

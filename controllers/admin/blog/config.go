@@ -1,6 +1,6 @@
 package blog
 
-import "github.com/hunterhug/rabbit/models/blog"
+import "awsome_web/models/blog"
 
 type ConfigController struct {
 	baseController

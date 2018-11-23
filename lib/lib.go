@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -135,7 +135,7 @@ func Md5FS(src io.Reader) string {
 		fmt.Println(err.Error())
 		return ""
 	}
-	return fmt.Sprintf("%x", h.Sum([]byte("hunterhug")))
+	return fmt.Sprintf("%x", h.Sum([]byte("admin")))
 }
 
 //判断是否是文件
@@ -266,7 +266,7 @@ func GetClientIp(this *context.Context) string {
 
 // 分80个文件夹
 func Hashcode(asin string) string {
-	dd := []byte(Md5("iloveyou"+asin+"hunterhug") + Md5(asin))
+	dd := []byte(Md5("iloveyou"+asin+"admin") + Md5(asin))
 	sum := 0
 	for _, i := range dd {
 		sum = sum + int(i)

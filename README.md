@@ -1,19 +1,19 @@
 
 
-# Project： Rabbit(Tuzi)
+# Project： awsome_web(Tuzi)
 
-[![GitHub forks](https://img.shields.io/github/forks/hunterhug/rabbit.svg?style=social&label=Forks)](https://github.com/hunterhug/rabbit/network)
-[![GitHub stars](https://img.shields.io/github/stars/hunterhug/rabbit.svg?style=social&label=Stars)](https://github.com/hunterhug/rabbit/stargazers)
-[![GitHub last commit](https://img.shields.io/github/last-commit/hunterhug/rabbit.svg)](https://github.com/hunterhug/rabbit)
-[![Go Report Card](https://goreportcard.com/badge/github.com/hunterhug/rabbit)](https://goreportcard.com/report/github.com/hunterhug/rabbit)
-[![GitHub issues](https://img.shields.io/github/issues/hunterhug/rabbit.svg)](https://github.com/hunterhug/rabbit/issues)
-[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/hunterhug/rabbit/master/LICENSE)
+[![GitHub forks](https://img.shields.io/github/forks/admin/awsome_web.svg?style=social&label=Forks)](https://github.com/admin/awsome_web/network)
+[![GitHub stars](https://img.shields.io/github/stars/admin/awsome_web.svg?style=social&label=Stars)](https://github.com/admin/awsome_web/stargazers)
+[![GitHub last commit](https://img.shields.io/github/last-commit/admin/awsome_web.svg)](https://github.com/admin/awsome_web)
+[![Go Report Card](https://goreportcard.com/badge/github.com/admin/awsome_web)](https://goreportcard.com/report/github.com/admin/awsome_web)
+[![GitHub issues](https://img.shields.io/github/issues/admin/awsome_web.svg)](https://github.com/admin/awsome_web/issues)
+[![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://raw.githubusercontent.com/admin/awsome_web/master/LICENSE)
 
 请看: [中文介绍](doc/Chinese.md)
 
 You can own a enterprise web just listen to me! You just need install golang environment(ask for google help).Under developing...
 
-![Rabbit](tuzi.png)
+![awsome_web](tuzi.png)
 
 ## 1. How to use
 
@@ -22,15 +22,15 @@ Go1.9+ Must!
 Just do this:
 
 ```shell
-go get -v github.com/hunterhug/rabbit
+go get -v github.com/admin/awsome_web
 ```
 
 Or
 
 ```
-git clone https://www.github.com/hunterhug/rabbit
-mkdir -p %GOPATH%/src/github.com/hunterhug
-mv rabbit %GOPATH%/src/github.com/hunterhug
+git clone https://www.github.com/admin/awsome_web
+mkdir -p %GOPATH%/src/github.com/admin
+mv awsome_web %GOPATH%/src/github.com/admin
 ```
 
 Then build our web
@@ -68,7 +68,7 @@ db_type = mysql
 And init our database:
 
 ```shell
-./rabbit -db=1
+./awsome_web -db=1
 ```
 
 ~~Or(I recommend to use)~~
@@ -84,7 +84,7 @@ cd sh
 Last run it:
 
 ```shell
-./rabbit
+./awsome_web
 ```
 
 Ok, you can open `http://127.0.0.1:8080`, Login to edit the website: `http://127.0.0.1:8080/public/login`, User: `admin`, Password：`admin`
@@ -178,7 +178,7 @@ when ajax call JSON must pay attention across-domain rule(see rht dir front), wh
 Every add routers and permissions in `models/admin/AdminInit.go`, please rebuild rbac:
 
 ```
-./rabbit -rbac=1
+./awsome_web -rbac=1
 ```
 
 debug you can use `bee run`...
@@ -233,7 +233,7 @@ go run main.go  -config=conf/tuzi.conf -home=home/first
 # LICENSE
 
 ```
-Copyright 2017 by rabbit author: gdccmcm14@live.com.
+awsome_web
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at

@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -13,12 +13,12 @@
 package home
 
 import (
+	"awsome_web/lib"
+	"awsome_web/models/blog"
 	"encoding/json"
 	"errors"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	"github.com/hunterhug/rabbit/lib"
-	"github.com/hunterhug/rabbit/models/blog"
 )
 
 type MainController struct {
@@ -55,7 +55,7 @@ func (this *MainController) DetectIndex() {
 	h := this.GetString("h", "")
 	if h != "" {
 		switch h {
-		case "first", "default", "hunterhug":
+		case "first", "default", "admin":
 			this.Ctx.SetCookie("X-Home", "home/"+h, false, "/", false, false, true)
 		default:
 			break

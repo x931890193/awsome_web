@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -17,11 +17,11 @@ import (
 	"fmt"
 	"os"
 
+	"awsome_web/conf"
+	"awsome_web/models/admin"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/hunterhug/rabbit/conf"
-	"github.com/hunterhug/rabbit/models/admin"
 	"time"
 )
 

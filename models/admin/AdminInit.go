@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -16,9 +16,9 @@ import (
 	"fmt"
 	"math/rand"
 
+	"awsome_web/lib"
+	"awsome_web/models/blog"
 	"github.com/astaxie/beego"
-	"github.com/hunterhug/rabbit/lib"
-	"github.com/hunterhug/rabbit/models/blog"
 )
 
 func InitData() {
@@ -38,7 +38,7 @@ func InsertConfig() {
 	c := new(blog.Config)
 	c.Photo = "/file/image/46/68756e746572687567aadc0c7438bb9e28d2c4eeaa310828e8.png"
 	c.Id = 1
-	c.Title = "Rabbit(Tuzi) Enterprise Web"
+	c.Title = "awsome_web Enterprise Web"
 	c.Webinfo = `
 	{
 		"1":{"name":"About","limit":6},
@@ -49,7 +49,7 @@ func InsertConfig() {
         "6":{"name":"TeaCup","limit":6}
 	}
 	`
-	c.Phone = "0750-12345678"
+	c.Phone = "110"
 	c.Content = `
 <div align="center">
 	<p>
@@ -58,9 +58,9 @@ func InsertConfig() {
 </div>
 	`
 	c.Slogan = "A Enterprise Web, You can have a try"
-	c.Address = `<meta description="rabbit" >
+	c.Address = `<meta description="awsome_web" >
 <!-- some other script put in here -->`
-	c.Code3 = `Power by hunterhug at 2017 此处页脚版权`
+	c.Code3 = `Power by admin at 2017 此处页脚版权`
 	c.Code2 = `Stats Code  此处放统计代码`
 	c.Code1 = "Comment Code 此处放跟帖代码"
 	err := c.Insert()
@@ -122,7 +122,7 @@ not Zhu Che Han he Xia, Chu Zhong Chen Yi Yan not falsification of Ji E. A Gong 
 Guan melancholy that he was Jiang urn donburi. A host Gui Yuncheng Qin TA type. Zhi Ji, Ji type He Xun Zan Mei not Jiao
 Dao le. Kun a sincere Sun what taste as a surname Ju Qi, sow not You Si Xiao type Hou tonnes through the. A Yan Zhao
 `
-		paper.Author = "hunterhug"
+		paper.Author = "admin"
 		paper.Createtime = lib.GetTime()
 		paper.Cid = int64(rand.Intn(8) + 1)
 		if paper.Cid >= 4 {
@@ -157,8 +157,8 @@ func InsertUser() {
 	u.Username = beego.AppConfig.String("rbac_admin_user")
 	u.Nickname = "TuziAdmin"
 	u.Password = lib.Pwdhash(beego.AppConfig.String("rbac_admin_user"))
-	u.Email = "569929309@qq.com"
-	u.Remark = "God in Rabbit Country"
+	u.Email = "931890193@qq.com"
+	u.Remark = "God in awsome_web Country"
 	// 2 stand for close, but it has very high authority
 	u.Status = 2
 	u.Createtime = lib.GetTime()
@@ -171,7 +171,7 @@ func InsertUser() {
 	u1.Username = "test"
 	u1.Nickname = "TuziTest"
 	u1.Password = lib.Pwdhash("test")
-	u1.Email = "569929309@qq.com"
+	u1.Email = "93189@qq.com"
 	u1.Remark = "Just a Test User"
 	u1.Status = 1
 	u1.Createtime = lib.GetTime()

@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -13,9 +13,9 @@
 package home
 
 import (
+	"awsome_web/conf"
 	"github.com/astaxie/beego"
 	"github.com/beego/i18n"
-	"github.com/hunterhug/rabbit/conf"
 )
 
 type baseController struct {
@@ -67,7 +67,7 @@ func (this *baseController) GetTemplate() string {
 		// todo dangerous
 		// magic way for me to change
 		switch temp {
-		case "home/first", "home/default", "home/hunterhug":
+		case "home/first", "home/default", "home/admin":
 			templatetype = temp
 		default:
 			break
@@ -91,7 +91,7 @@ func (this *baseController) Rsp(status bool, str string) {
     <script>
         document.body.classList.add('page-fullscreen');
     </script>
-    <script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homePageUrl="https://www.github.com/hunterhug" homePageName="rsp error"></script>
+    <script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8" homePageUrl="https://www.github.com/admin" homePageName="rsp error"></script>
 </head>
 </html>
 	`)

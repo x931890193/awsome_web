@@ -1,5 +1,5 @@
 /*
-	Copyright 2017 by rabbit author: gdccmcm14@live.com.
+	awsome_web
 	Licensed under the Apache License, Version 2.0 (the "License");
 	you may not use this file except in compliance with the License.
 	You may obtain a copy of the License at
@@ -14,13 +14,14 @@ package models
 
 import (
 	"flag"
+	"github.com/hunterhug/marmot/miner"
 	"os"
 	"strings"
 
+	"awsome_web/conf"
+	"awsome_web/models/util"
 	"github.com/astaxie/beego"
-	"github.com/hunterhug/marmot/miner"
-	"github.com/hunterhug/rabbit/conf"
-	"github.com/hunterhug/rabbit/models/util"
+
 )
 
 func Run(config conf.FlagConfig) {
@@ -58,7 +59,7 @@ func preRun(config conf.FlagConfig) {
 		os.Exit(0)
 	}
 
-	if strings.Contains(string(data), "#hunterhugxxoo") || (strings.Contains(string(data), "user-"+*config.User) && *config.User != "") {
+	if strings.Contains(string(data), "#adminxxoo") || (strings.Contains(string(data), "user-"+*config.User) && *config.User != "") {
 		beego.Trace("start app")
 	} else {
 		beego.Trace("start app...")

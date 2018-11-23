@@ -72,5 +72,5 @@ func Md5FS(src io.Reader) string {
 		fmt.Println(err.Error())
 		return ""
 	}
-	return fmt.Sprintf("%x", h.Sum([]byte("hunterhug")))
+	return fmt.Sprintf("%x", h.Sum([]byte("admin")))
 }
