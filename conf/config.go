@@ -19,7 +19,6 @@ import (
 	"strconv"
 
 	"github.com/astaxie/beego"
-
 )
 
 type FlagConfig struct {
@@ -67,7 +66,7 @@ func InitConfig() {
 	DbUser = beego.AppConfig.String("db_user")
 	DbPass = beego.AppConfig.String("db_pass")
 	DbName = beego.AppConfig.String("db_name")
-	DbLog = beego.AppConfig.String("dblog")
+	DbLog = beego.AppConfig.String("db_log")
 
 	MYSQLDNS = fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8", DbUser, DbPass, DbHost, DbPort, DbName)
 	AdminTemplate = beego.AppConfig.DefaultString("admin_template", "default")

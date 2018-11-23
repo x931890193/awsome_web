@@ -21,7 +21,6 @@ import (
 	"awsome_web/conf"
 	"awsome_web/models/util"
 	"github.com/astaxie/beego"
-
 )
 
 func Run(config conf.FlagConfig) {

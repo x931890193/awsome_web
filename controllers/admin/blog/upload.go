@@ -11,7 +11,7 @@ import (
 
 var FileAllow = map[string][]string{
 	"image": {
-		"jpg", "jpeg", "png", "bmp", "gif"},
+		"jpg", "jpeg", "png", "bmp", "gif", "JPG"},
 	"flash": {
 		"swf", "flv"},
 	"media": {
